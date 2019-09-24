@@ -15,7 +15,7 @@ def find_difference(first, second)
   (first.inject(:*) - second.inject(:*)).abs
 end
 
-# Find the odd number of occurences of one number in sequence and return it
+# Find the odd number of occurences of one number in sequence and return it (6 kyu)
 # My attempt
 def find_it(seq)
   appearances = seq.each_with_object(Hash.new(0)) { |number, counts| counts[number] += 1 }
@@ -26,4 +26,9 @@ end
 
 def find_it_better(seq)
   seq.detect { |n| seq.count(n).odd? }
+end
+
+# Look for factor (8 kyu)
+def check_for_factor(base, factor)
+  base % factor == 0
 end
