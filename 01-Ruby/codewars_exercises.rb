@@ -14,3 +14,16 @@ end
 def find_difference(first, second)
   (first.inject(:*) - second.inject(:*)).abs
 end
+
+# Find the odd number of occurences of one number in sequence and return it
+# My attempt
+def find_it(seq)
+  appearances = seq.each_with_object(Hash.new(0)) { |number, counts| counts[number] += 1 }
+  answer = appearances.select { |k, v| v % 2 != 0 }
+  answer.keys[0]
+end
+# Better solution found on codewars:
+
+def find_it_better(seq)
+  seq.detect { |n| seq.count(n).odd? }
+end
